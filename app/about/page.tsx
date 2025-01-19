@@ -2,7 +2,7 @@ import { Container, Flex } from "@radix-ui/themes";
 
 export default function About() {
   return (
-    <Container>
+    <Container className="px-3">
       <Flex align="center" className="h-[200px] bg-gray-400" px="4">
         <h1 className="text-5xl font-bold text-white">About Us</h1>
       </Flex>

@@ -46,7 +46,7 @@ export default function Contact() {
   }
 
   return (
-    <Container>
+    <Container className="px-3">
       <Flex align="center" justify="center" className="py-[100px]">
         <div className="w-[500px] rounded-2xl shadow-xl border py-4 px-3">
           <h1 className="text-2xl font-semibold text-center">Contact Us</h1>

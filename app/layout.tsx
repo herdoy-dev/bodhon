@@ -1,5 +1,5 @@
 import Footer from "@/components/footer";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { Theme } from "@radix-ui/themes";

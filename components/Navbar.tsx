@@ -6,16 +6,43 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "./theme-toggle";
 
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { AlignJustify } from "lucide-react";
+import { Button } from "./ui/button";
+
 export default function Navbar() {
   const currentPath = usePathname();
   return (
-    <div className="bg-secondary border-b py-5 mb-4">
+    <div className="bg-secondary border-b py-5 mb-4 px-3">
       <Container>
         <Flex justify="between" align="center">
-          <Link className="uppercase font-semibold" href="/">
-            Kathulia
-          </Link>
-          <ul className="flex items-center gap-6">
+          <Flex align="center" gap="3">
+            <Link className="uppercase font-semibold" href="/">
+              Kathulia
+            </Link>
+            <div className="block md:hidden">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline">
+                    <AlignJustify />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56">
+                  {navItems.map((item) => (
+                    <Link key={item.id} href={item.link}>
+                      <DropdownMenuItem> {item.label} </DropdownMenuItem>
+                    </Link>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+          </Flex>
+          <ul className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
               <li key={item.id}>
                 <Link

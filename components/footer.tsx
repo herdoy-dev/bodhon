@@ -10,9 +10,14 @@ import {
 
 export default function Footer() {
   return (
-    <div className="py-6 bg-gray-800 text-white mt-10">
+    <div className="py-6 px-3 bg-gray-800 text-white mt-10">
       <Container>
-        <Flex align="center" justify="between">
+        <Flex
+          align={{ initial: "start", md: "center" }}
+          justify="between"
+          direction={{ initial: "column", md: "row" }}
+          gap={{ initial: "8", md: "0" }}
+        >
           <div className="space-y-3">
             <h2 className="text-2xl font-semibold">Contact</h2>
             <div className="space-y-3">
@@ -41,7 +46,13 @@ export default function Footer() {
               </Flex>
             </div>
           </div>
-          <Flex align="center" justify="center" direction="column" gap="4">
+          <Flex
+            align="center"
+            justify="center"
+            direction="column"
+            gap="4"
+            className="w-full md:w-auto"
+          >
             <h2 className="text-2xl font-semibold">Follow Us</h2>
             <Flex align="center" justify="center" gap="4">
               <Flex
