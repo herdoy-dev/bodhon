@@ -1,120 +1,61 @@
-import { Button, Container, Flex, Grid } from "@radix-ui/themes";
+import Hero from "@/components/hero";
+import PageLayout from "@/components/page-layout";
+import { Grid, Skeleton } from "@radix-ui/themes";
 
 export default function App() {
   return (
-    <Container className="px-3">
-      <Flex
-        className="bg-[url('/hero.webp')] bg-no-repeat bg-cover h-[500px] hero"
-        align="center"
-        justify="center"
-      >
-        <Flex
-          align="center"
-          justify="center"
-          direction="column"
-          gap="4"
-          className="text-white z-20 max-w-[600px] text-center"
-        >
-          <h1 className="text-4xl font-semibold">Bodhon Language Club</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
-            dolores quo totam, nihil atque porro ullam, dolorem voluptate
-            excepturi dolore nesciunt quia magnam maiores fugit inventore labore
-            blanditiis obcaecati at.
+    <div>
+      <Hero />
+      <PageLayout>
+        <section className="mb-10">
+          <h1 className="text-3xl mb-5 font-semibold">About Us</h1>
+          <p className="mb-5">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt,
+            minus? Corporis aliquam necessitatibus dicta nobis laborum provident
+            magni quasi delectus, culpa illo nesciunt dolore quod odio autem!
+            Dolores, fugit! Illo fuga accusantium vel ex voluptatibus, molestias
+            temporibus, ad, tempore veritatis neque quisquam nemo rerum. Esse
+            atque neque repudiandae? Dicta, voluptates perferendis!
+            Exercitationem ex architecto ipsa quasi voluptate enim commodi
+            eveniet sapiente, consectetur sit eaque placeat, soluta suscipit
+            optio harum quaerat similique laudantium. Sequi, asperiores quidem
+            quia reiciendis culpa necessitatibus ut libero veritatis cupiditate
+            laborum sint molestias similique. Dolores ducimus cupiditate
+            excepturi beatae ipsam explicabo sed inventore veniam sit a
+            voluptatibus, doloribus ipsum eius quod odit atque eligendi autem
+            vero voluptates id? Delectus perferendis quam nihil corrupti sed
+            mollitia consequatur qui sequi, itaque provident id maxime minus
+            blanditiis obcaecati tempora quos adipisci? Nulla enim facere
+            voluptate obcaecati, dolorem rem cumque distinctio ex quas tempora!
+            Deleniti, aliquid magnam veniam itaque omnis dolores.
           </p>
-          <Button className="px-8" size="3">
-            Join Us
-          </Button>
-        </Flex>
-      </Flex>
-      <Grid columns={{ initial: "1", md: "2" }} gapX="6" gapY="9" my="9">
-        <div className="h-[300px] bg-gray-400 space-y-3"></div>
-        <div>
-          <h1 className="text-2xl font-semibold">
-            Lorem ipsum dolor sit amet consectetur.
-          </h1>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum
-            molestiae eos fugit delectus, exercitationem maxime placeat
-            consectetur! Quod aliquam expedita dolorum quam accusamus neque in
-            eos rem recusandae adipisci sunt, minus eius inventore blanditiis
-            placeat sequi molestias quasi numquam voluptatibus sint molestiae
-            distinctio? Beatae ipsum incidunt sed necessitatibus quas cumque
-            illum, natus eos ipsa alias a reiciendis provident expedita impedit
-            sunt suscipit similique sequi iure dignissimos fuga perferendis
-            quam? Ut molestias culpa quos ipsa vero tenetur quo sapiente,
-            blanditiis consequatur fugit dicta natus at magnam qui et, neque
-            repellendus. Neque, ut. Laborum nesciunt ipsam illum unde
-            dignissimos iure saepe beatae.
-          </p>
-        </div>
-      </Grid>
-      <Grid columns={{ initial: "1", md: "2" }} gapX="6" gapY="9" my="9">
-        <div className="grid-fix">
-          <h1 className="text-2xl font-semibold">
-            Lorem ipsum dolor sit amet consectetur.
-          </h1>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum
-            molestiae eos fugit delectus, exercitationem maxime placeat
-            consectetur! Quod aliquam expedita dolorum quam accusamus neque in
-            eos rem recusandae adipisci sunt, minus eius inventore blanditiis
-            placeat sequi molestias quasi numquam voluptatibus sint molestiae
-            distinctio? Beatae ipsum incidunt sed necessitatibus quas cumque
-            illum, natus eos ipsa alias a reiciendis provident expedita impedit
-            sunt suscipit similique sequi iure dignissimos fuga perferendis
-            quam? Ut molestias culpa quos ipsa vero tenetur quo sapiente,
-            blanditiis consequatur fugit dicta natus at magnam qui et, neque
-            repellendus. Neque, ut. Laborum nesciunt ipsam illum unde
-            dignissimos iure saepe beatae.
-          </p>
-        </div>
-        <div className="h-[300px] bg-gray-400 space-y-3"></div>
-      </Grid>
-      <Grid columns={{ initial: "1", md: "2" }} gapX="6" gapY="9" my="9">
-        <div className="h-[300px] bg-gray-400 space-y-3"></div>
-        <div>
-          <h1 className="text-2xl font-semibold">
-            Lorem ipsum dolor sit amet consectetur.
-          </h1>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum
-            molestiae eos fugit delectus, exercitationem maxime placeat
-            consectetur! Quod aliquam expedita dolorum quam accusamus neque in
-            eos rem recusandae adipisci sunt, minus eius inventore blanditiis
-            placeat sequi molestias quasi numquam voluptatibus sint molestiae
-            distinctio? Beatae ipsum incidunt sed necessitatibus quas cumque
-            illum, natus eos ipsa alias a reiciendis provident expedita impedit
-            sunt suscipit similique sequi iure dignissimos fuga perferendis
-            quam? Ut molestias culpa quos ipsa vero tenetur quo sapiente,
-            blanditiis consequatur fugit dicta natus at magnam qui et, neque
-            repellendus. Neque, ut. Laborum nesciunt ipsam illum unde
-            dignissimos iure saepe beatae.
-          </p>
-        </div>
-      </Grid>
-      <Grid columns={{ initial: "1", md: "2" }} gapX="6" gapY="9" my="9">
-        <div className="grid-fix">
-          <h1 className="text-2xl font-semibold">
-            Lorem ipsum dolor sit amet consectetur.
-          </h1>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum
-            molestiae eos fugit delectus, exercitationem maxime placeat
-            consectetur! Quod aliquam expedita dolorum quam accusamus neque in
-            eos rem recusandae adipisci sunt, minus eius inventore blanditiis
-            placeat sequi molestias quasi numquam voluptatibus sint molestiae
-            distinctio? Beatae ipsum incidunt sed necessitatibus quas cumque
-            illum, natus eos ipsa alias a reiciendis provident expedita impedit
-            sunt suscipit similique sequi iure dignissimos fuga perferendis
-            quam? Ut molestias culpa quos ipsa vero tenetur quo sapiente,
-            blanditiis consequatur fugit dicta natus at magnam qui et, neque
-            repellendus. Neque, ut. Laborum nesciunt ipsam illum unde
-            dignissimos iure saepe beatae.
-          </p>
-        </div>
-        <div className="h-[300px] bg-gray-400 space-y-3"></div>
-      </Grid>
-    </Container>
+        </section>
+        <section className="mb-10">
+          <h1 className="text-3xl mb-5 font-semibold">Our Programs</h1>
+          <Grid columns={{ initial: "1", md: "2" }} gap="3">
+            <div className="w-full space-y-3">
+              <Skeleton className="w-full h-[200px]" />
+              <Skeleton className="w-full h-[20px]" />
+              <Skeleton className="w-[50%] h-[20px]" />
+            </div>
+            <div className="w-full space-y-3">
+              <Skeleton className="w-full h-[200px]" />
+              <Skeleton className="w-full h-[20px]" />
+              <Skeleton className="w-[50%] h-[20px]" />
+            </div>
+            <div className="w-full space-y-3">
+              <Skeleton className="w-full h-[200px]" />
+              <Skeleton className="w-full h-[20px]" />
+              <Skeleton className="w-[50%] h-[20px]" />
+            </div>
+            <div className="w-full space-y-3">
+              <Skeleton className="w-full h-[200px]" />
+              <Skeleton className="w-full h-[20px]" />
+              <Skeleton className="w-[50%] h-[20px]" />
+            </div>
+          </Grid>
+        </section>
+      </PageLayout>
+    </div>
   );
 }

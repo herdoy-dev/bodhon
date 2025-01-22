@@ -1,12 +1,10 @@
-import { Container, Flex } from "@radix-ui/themes";
+import PageLayout from "@/components/page-layout";
+import { Flex } from "@radix-ui/themes";
 
 export default function Programs() {
   return (
-    <Container className="px-3">
-      <Flex align="center" className="h-[200px] bg-gray-400" px="4">
-        <h1 className="text-5xl font-bold text-white">Our Programs</h1>
-      </Flex>
-      <Flex direction="column" gap="3" mt="6">
+    <PageLayout>
+      <Flex direction="column" gap="3">
         {Array.from({ length: 6 }).map((_, i) => (
           <div className="space-y-2" key={i}>
             <h3 className="text-xl font-semibold">
@@ -30,6 +28,6 @@ export default function Programs() {
           </div>
         ))}
       </Flex>
-    </Container>
+    </PageLayout>
   );
 }
