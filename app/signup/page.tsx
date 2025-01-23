@@ -13,8 +13,10 @@ import { Input } from "@/components/ui/input";
 import { toast } from "@/hooks/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Container, Flex, Grid } from "@radix-ui/themes";
+import { signIn } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import axios from "axios";
 
 const FormSchema = z.object({
   firstName: z.string().min(1),
@@ -35,14 +37,22 @@ export default function SignUP() {
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
-    toast({
-      title: "You submitted the following values:",
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    });
+    const { firstName, lastName, email, password } = data;
+    axios
+      .post("/api/users", {
+        name: `${firstName} ${lastName}`,
+        email,
+        password,
+      })
+      .then(() => {
+        toast({ title: "Sign Up Success!" });
+        signIn("credentials", {
+          email,
+          password,
+          callbackUrl: "/",
+        });
+      })
+      .catch(() => toast({ title: "Something went worn!" }));
   }
 
   return (

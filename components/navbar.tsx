@@ -13,10 +13,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { AlignJustify } from "lucide-react";
+import { useSession } from "next-auth/react";
 import { Button } from "./ui/button";
 
 export default function Navbar() {
   const currentPath = usePathname();
+  const { status } = useSession();
   return (
     <div className="bg-secondary border-b py-5 mb-4 px-3">
       <Container>
@@ -58,19 +60,29 @@ export default function Navbar() {
             ))}
           </ul>
           <ul className="flex items-center gap-6">
-            {authPages.map((item) => (
-              <li key={item.id}>
-                <Link
-                  className={cn(
-                    item.link === currentPath && "font-semibold",
-                    "hover:font-semibold transition-all"
-                  )}
-                  href={item.link}
-                >
-                  {item.label}
-                </Link>
+            {status === "authenticated" && (
+              <li>
+                <Link href="/dashboard">Dashboard</Link>
               </li>
-            ))}
+            )}
+
+            {status === "unauthenticated" && (
+              <>
+                {authPages.map((item) => (
+                  <li key={item.id}>
+                    <Link
+                      className={cn(
+                        item.link === currentPath && "font-semibold",
+                        "hover:font-semibold transition-all"
+                      )}
+                      href={item.link}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </>
+            )}
             <ThemeToggle />
           </ul>
         </Flex>

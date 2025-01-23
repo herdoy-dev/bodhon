@@ -7,6 +7,7 @@ import "@radix-ui/themes/styles.css";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import SessionProvider from "./session-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,9 +41,11 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <Navbar />
-            {children}
-            <Footer />
+            <SessionProvider>
+              <Navbar />
+              {children}
+              <Footer />
+            </SessionProvider>
           </ThemeProvider>
         </Theme>
         <Toaster />
