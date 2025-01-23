@@ -1,10 +1,13 @@
+import Footer from "@/components/footer";
 import Hero from "@/components/hero";
+import Navbar from "@/components/navbar";
 import PageLayout from "@/components/page-layout";
 import { Grid, Skeleton } from "@radix-ui/themes";
 
 export default function App() {
   return (
-    <div>
+    <>
+      <Navbar />
       <Hero />
       <PageLayout>
         <section className="mb-10">
@@ -56,6 +59,7 @@ export default function App() {
           </Grid>
         </section>
       </PageLayout>
-    </div>
+      <Footer />
+    </>
   );
 }

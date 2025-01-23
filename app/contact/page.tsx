@@ -1,5 +1,7 @@
 "use client";
 
+import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -46,24 +48,55 @@ export default function Contact() {
   }
 
   return (
-    <Container className="px-3">
-      <Flex align="center" justify="center" className="py-[100px]">
-        <div className="w-[500px] rounded-2xl shadow-xl border py-4 px-3">
-          <h1 className="text-2xl font-semibold text-center">Contact Us</h1>
-          <Form {...form}>
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              className="w-full space-y-4"
-            >
-              <Grid columns="2" gap="4" className="w-full">
+    <>
+      <Navbar />
+      <Container className="px-3">
+        <Flex align="center" justify="center" className="py-[100px]">
+          <div className="w-[500px] rounded-2xl shadow-xl border py-4 px-3">
+            <h1 className="text-2xl font-semibold text-center">Contact Us</h1>
+            <Form {...form}>
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="w-full space-y-4"
+              >
+                <Grid columns="2" gap="4" className="w-full">
+                  <FormField
+                    control={form.control}
+                    name="firstName"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>First Name</FormLabel>
+                        <FormControl>
+                          <Input placeholder="First Name" {...field} />
+                        </FormControl>
+
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="lastName"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Last Name</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Last Name" {...field} />
+                        </FormControl>
+
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </Grid>
                 <FormField
                   control={form.control}
-                  name="firstName"
+                  name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>First Name</FormLabel>
+                      <FormLabel>Email Address</FormLabel>
                       <FormControl>
-                        <Input placeholder="First Name" {...field} />
+                        <Input placeholder="Email Address" {...field} />
                       </FormControl>
 
                       <FormMessage />
@@ -72,57 +105,30 @@ export default function Contact() {
                 />
                 <FormField
                   control={form.control}
-                  name="lastName"
+                  name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Last Name</FormLabel>
+                      <FormLabel>Message</FormLabel>
                       <FormControl>
-                        <Input placeholder="Last Name" {...field} />
+                        <TextArea
+                          rows={6}
+                          placeholder="Type your message"
+                          {...field}
+                        />
                       </FormControl>
 
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-              </Grid>
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email Address</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Email Address" {...field} />
-                    </FormControl>
 
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Message</FormLabel>
-                    <FormControl>
-                      <TextArea
-                        rows={6}
-                        placeholder="Type your message"
-                        {...field}
-                      />
-                    </FormControl>
-
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <Button type="submit">Submit</Button>
-            </form>
-          </Form>
-        </div>
-      </Flex>
-    </Container>
+                <Button type="submit">Submit</Button>
+              </form>
+            </Form>
+          </div>
+        </Flex>
+      </Container>
+      <Footer />
+    </>
   );
 }

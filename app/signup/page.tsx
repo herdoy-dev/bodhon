@@ -12,11 +12,11 @@ import {
 import { Input } from "@/components/ui/input";
 import { toast } from "@/hooks/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Container, Flex, Grid } from "@radix-ui/themes";
+import { Container, Flex, Grid, Link } from "@radix-ui/themes";
+import axios from "axios";
 import { signIn } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import axios from "axios";
 
 const FormSchema = z.object({
   firstName: z.string().min(1),
@@ -128,9 +128,19 @@ export default function SignUP() {
                 )}
               />
 
-              <Button type="submit">Sign Up</Button>
+              <Button className="w-full" type="submit">
+                Sign Up
+              </Button>
             </form>
           </Form>
+          <div className="mt-5 w-full">
+            <p className="text-center">
+              Already have an account{" "}
+              <Link className="text-primary" href="/login">
+                Log In
+              </Link>{" "}
+            </p>
+          </div>
         </div>
       </Flex>
     </Container>

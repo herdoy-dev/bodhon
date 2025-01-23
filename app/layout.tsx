@@ -1,5 +1,3 @@
-import Footer from "@/components/footer";
-import Navbar from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { Theme } from "@radix-ui/themes";
@@ -41,11 +39,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <SessionProvider>
-              <Navbar />
-              {children}
-              <Footer />
-            </SessionProvider>
+            <SessionProvider>{children}</SessionProvider>
           </ThemeProvider>
         </Theme>
         <Toaster />

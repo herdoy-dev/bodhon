@@ -14,6 +14,7 @@ import { toast } from "@/hooks/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Container, Flex } from "@radix-ui/themes";
 import { signIn } from "next-auth/react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -95,9 +96,19 @@ export default function Login() {
                 )}
               />
 
-              <Button type="submit">Login</Button>
+              <Button className="w-full" type="submit">
+                Login
+              </Button>
             </form>
           </Form>
+          <div className="mt-5 w-full">
+            <p className="text-center">
+              Don&apos;t have any account?{" "}
+              <Link className="text-primary" href="/signup">
+                Sign Up
+              </Link>{" "}
+            </p>
+          </div>
         </div>
       </Flex>
     </Container>
