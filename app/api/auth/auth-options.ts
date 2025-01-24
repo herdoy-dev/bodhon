@@ -1,7 +1,7 @@
 import { prisma } from "@/prisma/client";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import bcrypt from "bcryptjs";
-import { AuthOptions } from "next-auth";
+import { AuthOptions, User as NextAuthUser } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 const authOptions: AuthOptions = {
@@ -31,7 +31,7 @@ const authOptions: AuthOptions = {
           user.password!
         );
         if (!checkPassword) return null;
-        return user ? user : null;
+        return user ? (user as NextAuthUser) : null;
       },
     }),
   ],
@@ -44,15 +44,21 @@ const authOptions: AuthOptions = {
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
+        token.name = user.name;
+        token.email = user.email;
         token.image = user.image;
+        token.isAdmin = user.isAdmin;
       }
       return token;
     },
 
     async session({ session, token }) {
       if (token) {
-        session.user.id = token.id as string;
-        session.user.image = token.image as string;
+        session.user.id = token.id;
+        session.user.name = token.name;
+        session.user.email = token.email;
+        session.user.image = token.image;
+        session.user.isAdmin = token.isAdmin;
       }
       return session;
     },

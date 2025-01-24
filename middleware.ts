@@ -19,6 +19,13 @@ export async function middleware(req: NextRequest) {
     return NextResponse.redirect(new URL("/login", req.url));
   }
 
+  if (token && pathname.startsWith("/dashboard")) {
+    const isAdmin = token.isAdmin === true;
+    if (!isAdmin) {
+      return NextResponse.redirect(new URL("/", req.url));
+    }
+  }
+
   return NextResponse.next();
 }
 

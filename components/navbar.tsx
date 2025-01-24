@@ -13,12 +13,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { AlignJustify } from "lucide-react";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { Button } from "./ui/button";
 
 export default function Navbar() {
   const currentPath = usePathname();
-  const { status } = useSession();
+  const { status, data } = useSession();
+  console.log(data);
   return (
     <div className="bg-secondary border-b py-5 mb-4 px-3">
       <Container>
@@ -61,9 +62,20 @@ export default function Navbar() {
           </ul>
           <ul className="flex items-center gap-6">
             {status === "authenticated" && (
-              <li>
-                <Link href="/dashboard">Dashboard</Link>
-              </li>
+              <>
+                {data.user.isAdmin && (
+                  <li>
+                    <Link href="/dashboard">Dashboard</Link>
+                  </li>
+                )}
+
+                <li
+                  className="cursor-pointer"
+                  onClick={() => signOut({ callbackUrl: "/" })}
+                >
+                  Logout
+                </li>
+              </>
             )}
 
             {status === "unauthenticated" && (
