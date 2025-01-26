@@ -103,7 +103,4 @@ export default function Navbar() {
   );
 }
 
-const authPages = [
-  { id: 1, label: "Login", link: "/login" },
-  { id: 2, label: "Sign Up", link: "/signup" },
-];
+const authPages = [{ id: 1, label: "Login", link: "/login" }];
