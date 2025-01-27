@@ -15,7 +15,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Container, Flex, Grid, Link } from "@radix-ui/themes";
 import axios from "axios";
 import { signIn } from "next-auth/react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { BeatLoader } from "react-spinners";
 import { z } from "zod";
 
 const FormSchema = z.object({
@@ -26,6 +28,7 @@ const FormSchema = z.object({
 });
 
 export default function SignUP() {
+  const [isLoading, setLoading] = useState(false);
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -38,6 +41,7 @@ export default function SignUP() {
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     const { firstName, lastName, email, password } = data;
+    setLoading(true);
     axios
       .post("/api/users", {
         name: `${firstName} ${lastName}`,
@@ -46,13 +50,17 @@ export default function SignUP() {
       })
       .then(() => {
         toast({ title: "Sign Up Success!" });
+        setLoading(false);
         signIn("credentials", {
           email,
           password,
           callbackUrl: "/",
         });
       })
-      .catch(() => toast({ title: "Something went worn!" }));
+      .catch(() => {
+        toast({ title: "Something went worn!" });
+        setLoading(false);
+      });
   }
 
   return (
@@ -128,8 +136,8 @@ export default function SignUP() {
                 )}
               />
 
-              <Button className="w-full" type="submit">
-                Sign Up
+              <Button disabled={isLoading} className="w-full" type="submit">
+                {isLoading ? <BeatLoader /> : "Submit"}
               </Button>
             </form>
           </Form>

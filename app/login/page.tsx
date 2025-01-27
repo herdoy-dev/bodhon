@@ -16,7 +16,9 @@ import { Container, Flex } from "@radix-ui/themes";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { BeatLoader } from "react-spinners";
 import { z } from "zod";
 
 const FormSchema = z.object({
@@ -25,6 +27,7 @@ const FormSchema = z.object({
 });
 
 export default function Login() {
+  const [isLoading, setLoading] = useState(false);
   const router = useRouter();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -36,7 +39,7 @@ export default function Login() {
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     const { email, password } = data;
-
+    setLoading(true);
     signIn("credentials", {
       email,
       password,
@@ -44,11 +47,13 @@ export default function Login() {
       redirect: false,
     }).then((res) => {
       if (res?.ok) {
+        setLoading(false);
         toast({ title: "Login Success!" });
         router.push("/");
       }
       if (res?.error) {
         toast({ title: "Invalid username or password" });
+        setLoading(false);
       }
     });
   }
@@ -96,8 +101,8 @@ export default function Login() {
                 )}
               />
 
-              <Button className="w-full" type="submit">
-                Login
+              <Button disabled={isLoading} className="w-full" type="submit">
+                {isLoading ? <BeatLoader /> : "Log In"}
               </Button>
             </form>
           </Form>

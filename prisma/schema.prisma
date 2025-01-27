@@ -79,3 +79,9 @@ model Authenticator {
 
   @@unique([userId, credentialID])
 }
+
+model AboutUs {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String
+}
