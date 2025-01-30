@@ -35,3 +35,5 @@ export default function App() {
     </PageLayout>
   );
 }
+
+export const dynamic = "force-dynamic";
