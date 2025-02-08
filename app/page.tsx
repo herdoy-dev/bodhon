@@ -1,3 +1,4 @@
+"use client"
 import AboutUs from "@/components/about-us";
 import { HomeCarousel } from "@/components/home-carousel";
 import PageLayout from "@/components/page-layout";
@@ -24,7 +25,7 @@ const programs = [
     caption: "Lorem ipsum dolor sit amet,",
   },
 ];
-export default function App() {
+export default function Home() {
   return (
     <PageLayout pageTop={<HomeCarousel />}>
       <AboutUs />
@@ -44,5 +45,3 @@ export default function App() {
     </PageLayout>
   );
 }
-
-export const dynamic = "force-dynamic";
