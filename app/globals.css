@@ -88,27 +88,37 @@ body {
   }
 }
 
-.hero{
+.radix-themes {
+  --default-font-family: var(--font-jost);
+}
+
+.radix-themes {
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 600;
+  --font-weight-bold: 800;
+}
+
+.hero {
   height: 500px;
   position: relative;
 }
-.hero::after{
+.hero::after {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,.5);
+  background: rgba(0, 0, 0, 0.5);
 }
 
-.grid-fix{
+.grid-fix {
   grid-area: 1;
 }
 
-@media screen and (max-width:1020px) {
-  .grid-fix{
+@media screen and (max-width: 1020px) {
+  .grid-fix {
     grid-area: 2;
   }
 }
-

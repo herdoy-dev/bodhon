@@ -3,18 +3,13 @@ import { Toaster } from "@/components/ui/toaster";
 import { Theme } from "@radix-ui/themes";
 import "@radix-ui/themes/styles.css";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Jost } from "next/font/google";
 import "./globals.css";
-import SessionProvider from "./session-provider";
 import { QueryClientProvider } from "./query-client-provider";
+import SessionProvider from "./session-provider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jost = Jost({
+  variable: "--font-jost",
   subsets: ["latin"],
 });
 
@@ -30,9 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${jost.variable} antialiased`}>
         <QueryClientProvider>
           <Theme>
             <ThemeProvider

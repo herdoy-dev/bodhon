@@ -14,12 +14,16 @@ import { Input } from "@/components/ui/input";
 import { useGetLanguage } from "@/hooks/programs/useLanguage";
 import { toast } from "@/hooks/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Flex, TextArea } from "@radix-ui/themes";
+import { Flex } from "@radix-ui/themes";
 import axios from "axios";
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { BeatLoader } from "react-spinners";
 import { z } from "zod";
+
+// Dynamically import MDEditor to prevent SSR issues
+const MDEditor = dynamic(() => import("@uiw/react-md-editor"), { ssr: false });
 
 const FormSchema = z.object({
   title: z.string().min(1, "Title is required."),
@@ -109,13 +113,12 @@ export default function EditLanguage() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Description</FormLabel>
-                  <FormControl>
-                    <TextArea
-                      rows={10}
-                      placeholder="Enter a detailed description"
-                      {...field}
-                    />
-                  </FormControl>
+                  <MDEditor
+                    value={field.value}
+                    onChange={field.onChange}
+                    height={400}
+                    preview="edit"
+                  />
                   <FormMessage />
                 </FormItem>
               )}
