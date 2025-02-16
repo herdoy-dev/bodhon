@@ -12,7 +12,7 @@ const ProgramCard = ({ image, title, caption }: Props) => {
       <Image src={image} alt="language" width={400} height={140} />
       <div className="px-2 pb-3">
         <h2 className="font-semibold"> {title} </h2>
-        <p> {caption} </p>
+        <p> {caption.slice(0, 100) + "...."} </p>
       </div>
     </div>
   );
