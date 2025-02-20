@@ -1,3 +1,4 @@
+'use client'
 import AboutUs from "@/components/about-us";
 import { HomeCarousel } from "@/components/home-carousel";
 import PageLayout from "@/components/page-layout";
