@@ -1,8 +1,8 @@
 "use client";
 
 import {
+  Bookmark,
   BookOpen,
-  Bot,
   Frame,
   Home,
   LayoutGrid,
@@ -27,9 +27,8 @@ const data = {
   navMain: [
     {
       title: "Home",
-      url: "/",
+      url: "/dashboard/about",
       icon: Home,
-      isActive: true,
       items: [
         {
           title: "About Us",
@@ -46,21 +45,25 @@ const data = {
       ],
     },
     {
-      title: "Models",
-      url: "#",
-      icon: Bot,
+      title: "Programs",
+      url: "/dashboard/programs",
+      icon: Bookmark,
       items: [
         {
-          title: "Genesis",
-          url: "#",
+          title: "Language",
+          url: "/dashboard/programs/language",
         },
         {
-          title: "Explorer",
-          url: "#",
+          title: "Sports",
+          url: "/dashboard/programs/sports",
         },
         {
-          title: "Quantum",
-          url: "#",
+          title: "Technical",
+          url: "/dashboard/programs/technical",
+        },
+        {
+          title: "Crafts",
+          url: "/dashboard/programs/crafts",
         },
       ],
     },

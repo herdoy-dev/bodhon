@@ -81,7 +81,36 @@ model Authenticator {
 }
 
 model AboutUs {
-  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
   title       String
+  thumbnail   String?
+  description String
+}
+
+model Language {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  thumbnail   String?
+  description String
+}
+
+model Sports {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  thumbnail   String?
+  description String
+}
+
+model Crafts {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  thumbnail   String?
+  description String
+}
+
+model Technical {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  thumbnail   String?
   description String
 }

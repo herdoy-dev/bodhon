@@ -1,26 +1,22 @@
+"use client";
 import Hero from "@/components/hero";
 import PageLayout from "@/components/page-layout";
+import { useGetSports } from "@/hooks/programs/useSports";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 const Sports = () => {
+  const { data: sports } = useGetSports();
   return (
     <PageLayout pageTop={<Hero image="/sports.jpg" />}>
-      {Array.from({ length: 4 }).map((_, i) => (
-        <div key={i} className="py-3">
-          <h1 className="font-semibold text-2xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing.
-          </h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
-            doloremque nostrum fugiat facere pariatur voluptatem magnam
-            blanditiis minus est eius, nemo molestiae rerum nihil, ducimus dicta
-            cupiditate delectus nulla dolor. Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Doloremque culpa soluta laboriosam
-            consequatur, beatae est ratione, cupiditate perferendis facilis
-            quibusdam nemo sit magnam excepturi dolor rem, amet at laudantium
-            non.
-          </p>
+      <div className="py-3">
+        <h1 className="font-semibold text-4xl mb-10">{sports?.title}</h1>
+        <div className="prose max-w-none">
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {sports?.description || ""}
+          </ReactMarkdown>
         </div>
-      ))}
+      </div>
     </PageLayout>
   );
 };
