@@ -67,7 +67,7 @@ export default function EditTechnical() {
         title: "Page Updated",
         description: "Your changes have been saved.",
       });
-      queryClient.invalidateQueries({ queryKey: ["about-us"] });
+      queryClient.invalidateQueries({ queryKey: ["technical"] });
       setIsUpdating(false);
     } catch {
       toast({

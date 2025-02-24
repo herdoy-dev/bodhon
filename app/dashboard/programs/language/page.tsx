@@ -67,7 +67,7 @@ export default function EditLanguage() {
         title: "Page Updated",
         description: "Your changes have been saved.",
       });
-      queryClient.invalidateQueries({ queryKey: ["about-us"] });
+      queryClient.invalidateQueries({ queryKey: ["language"] });
       setIsUpdating(false);
     } catch {
       toast({

@@ -67,7 +67,7 @@ export default function EditSports() {
         title: "Page Updated",
         description: "Your changes have been saved.",
       });
-      queryClient.invalidateQueries({ queryKey: ["about-us"] });
+      queryClient.invalidateQueries({ queryKey: ["sports"] });
       setIsUpdating(false);
     } catch {
       toast({
