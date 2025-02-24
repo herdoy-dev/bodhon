@@ -1,12 +1,14 @@
 import { Container, Flex } from "@radix-ui/themes";
 import {
-  Facebook,
-  Github,
-  Instagram,
-  Linkedin,
-  Mail,
-  Phone,
-} from "lucide-react";
+  FaFacebook,
+  FaGithub,
+  FaInstagram,
+  FaLinkedin,
+  FaWhatsapp,
+} from "react-icons/fa6";
+import { FiPhone } from "react-icons/fi";
+import { LuMail } from "react-icons/lu";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -22,28 +24,24 @@ export default function Footer() {
             <h2 className="text-2xl font-semibold">Contact</h2>
             <div className="space-y-3">
               <Flex align="center" gap="2">
-                <Phone /> <span>+8801408127781</span>
+                <FiPhone className="text-2xl" /> <span>+8801622465404</span>
               </Flex>
               <Flex align="center" gap="2">
-                <Mail /> <span>herdoy200@outlook.com</span>
+                <LuMail className="text-2xl" />{" "}
+                <span>herdoy.dev@gmail.com</span>
               </Flex>
               <Flex align="center" gap="2">
-                <i>W</i> <span>+8801408127781</span>
+                <FaWhatsapp className="text-2xl" /> <span>+8801622465404</span>
               </Flex>
             </div>
           </div>
           <div className="space-y-3">
-            <h2 className="text-2xl font-semibold">Contact</h2>
-            <div className="space-y-3">
-              <Flex align="center" gap="2">
-                <Phone /> <span>+8801408127781</span>
-              </Flex>
-              <Flex align="center" gap="2">
-                <Mail /> <span>herdoy200@outlook.com</span>
-              </Flex>
-              <Flex align="center" gap="2">
-                <i>W</i> <span>+8801408127781</span>
-              </Flex>
+            <h2 className="text-2xl font-semibold">Latest Programs</h2>
+            <div className="flex flex-col gap-2">
+              <Link href="/language">Language</Link>
+              <Link href="/crafts">Crafts</Link>
+              <Link href="/technical">Technical</Link>
+              <Link href="/sports">Sports</Link>
             </div>
           </div>
           <Flex
@@ -58,30 +56,30 @@ export default function Footer() {
               <Flex
                 align="center"
                 justify="center"
-                className="w-12 h-12 rounded-full bg-black shadow hover:shadow-white transition-all cursor-pointer"
+                className="w-10 h-10 rounded-full bg-black shadow hover:shadow-white transition-all cursor-pointer"
               >
-                <Facebook />
+                <FaFacebook className="text-xl" />
               </Flex>
               <Flex
                 align="center"
                 justify="center"
-                className="w-12 h-12 rounded-full bg-black shadow hover:shadow-white transition-all cursor-pointer"
+                className="w-10 h-10 rounded-full bg-black shadow hover:shadow-white transition-all cursor-pointer"
               >
-                <Instagram />
+                <FaInstagram className="text-xl" />
               </Flex>
               <Flex
                 align="center"
                 justify="center"
-                className="w-12 h-12 rounded-full bg-black shadow hover:shadow-white transition-all cursor-pointer"
+                className="w-10 h-10 rounded-full bg-black shadow hover:shadow-white transition-all cursor-pointer"
               >
-                <Linkedin />
+                <FaLinkedin className="text-xl" />
               </Flex>
               <Flex
                 align="center"
                 justify="center"
-                className="w-12 h-12 rounded-full bg-black shadow hover:shadow-white transition-all cursor-pointer"
+                className="w-10 h-10 rounded-full bg-black shadow hover:shadow-white transition-all cursor-pointer"
               >
-                <Github />
+                <FaGithub className="text-xl" />
               </Flex>
             </Flex>
           </Flex>
