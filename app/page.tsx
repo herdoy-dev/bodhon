@@ -1,3 +1,4 @@
+"use client";
 import dynamic from "next/dynamic";
 const AboutUs = dynamic(() => import("@/components/about-us"), { ssr: false });
 import { HomeCarousel } from "@/components/home-carousel";
