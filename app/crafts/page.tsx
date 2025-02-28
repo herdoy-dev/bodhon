@@ -1,6 +1,8 @@
+import dynamic from "next/dynamic";
 import Hero from "@/components/hero";
 import PageLayout from "@/components/page-layout";
-import CraftsPageContent from "./content";
+
+const CraftsPageContent = dynamic(() => import("./content"), { ssr: false });
 
 const Crafts = () => {
   return (

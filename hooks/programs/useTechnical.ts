@@ -7,4 +7,7 @@ export const useGetTechnical = () =>
     queryKey: ["technical"],
     queryFn: () =>
       axios.get<Technical>("/api/programs/technical").then((res) => res.data),
+    staleTime: 0, 
+    refetchOnMount: true,
+    refetchOnWindowFocus: true,
   });

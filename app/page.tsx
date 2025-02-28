@@ -1,4 +1,5 @@
-import AboutUs from "@/components/about-us";
+import dynamic from "next/dynamic";
+const AboutUs = dynamic(() => import("@/components/about-us"), { ssr: false });
 import { HomeCarousel } from "@/components/home-carousel";
 import LatestPrograms from "@/components/latest-programs";
 import PageLayout from "@/components/page-layout";

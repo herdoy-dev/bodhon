@@ -1,6 +1,8 @@
+import dynamic from "next/dynamic";
 import Hero from "@/components/hero";
 import PageLayout from "@/components/page-layout";
-import LanguagePageContent from "./content";
+
+const LanguagePageContent = dynamic(() => import("./content"), { ssr: false });
 
 const Language = () => {
   return (

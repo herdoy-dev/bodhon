@@ -7,4 +7,7 @@ export const useGetCrafts = () =>
     queryKey: ["crafts"],
     queryFn: () =>
       axios.get<Crafts>("/api/programs/crafts").then((res) => res.data),
+    staleTime: 0, 
+    refetchOnMount: true,
+    refetchOnWindowFocus: true,
   });

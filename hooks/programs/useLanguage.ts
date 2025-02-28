@@ -7,4 +7,7 @@ export const useGetLanguage = () =>
     queryKey: ["language"],
     queryFn: () =>
       axios.get<Language>("/api/programs/language").then((res) => res.data),
+    staleTime: 0, 
+    refetchOnMount: true,
+    refetchOnWindowFocus: true,
   });
