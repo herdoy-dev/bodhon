@@ -1,9 +1,6 @@
-"use client";
-import dynamic from "next/dynamic";
 import Hero from "@/components/hero";
 import PageLayout from "@/components/page-layout";
-
-const LanguagePageContent = dynamic(() => import("./content"), { ssr: false });
+import LanguagePageContent from "./content";
 
 const Language = () => {
   return (
@@ -14,3 +11,5 @@ const Language = () => {
 };
 
 export default Language;
+
+export const dynamic = "force-dynamic";

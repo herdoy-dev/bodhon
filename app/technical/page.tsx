@@ -1,9 +1,6 @@
-"use client";
-import dynamic from "next/dynamic";
 import Hero from "@/components/hero";
 import PageLayout from "@/components/page-layout";
-
-const TechnicalPageContent = dynamic(() => import("./content"), { ssr: false });
+import TechnicalPageContent from "./content";
 
 const Technical = () => {
   return (
@@ -14,3 +11,5 @@ const Technical = () => {
 };
 
 export default Technical;
+
+export const dynamic = "force-dynamic";

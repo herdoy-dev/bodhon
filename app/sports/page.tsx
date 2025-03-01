@@ -1,9 +1,6 @@
-"use client";
-import dynamic from "next/dynamic";
 import Hero from "@/components/hero";
 import PageLayout from "@/components/page-layout";
-
-const SportPageContent = dynamic(() => import("./content"), { ssr: false });
+import SportPageContent from "./content";
 
 const Sports = () => {
   return (
@@ -14,3 +11,5 @@ const Sports = () => {
 };
 
 export default Sports;
+
+export const dynamic = "force-dynamic";

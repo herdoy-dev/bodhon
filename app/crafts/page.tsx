@@ -1,9 +1,6 @@
-"use client";
-import dynamic from "next/dynamic";
 import Hero from "@/components/hero";
 import PageLayout from "@/components/page-layout";
-
-const CraftsPageContent = dynamic(() => import("./content"), { ssr: false });
+import CraftsPageContent from "./content";
 
 const Crafts = () => {
   return (
@@ -14,3 +11,5 @@ const Crafts = () => {
 };
 
 export default Crafts;
+
+export const dynamic = "force-dynamic";
