@@ -2,6 +2,8 @@ import Hero from "@/components/hero";
 import PageLayout from "@/components/page-layout";
 import LanguagePageContent from "./content";
 
+export const dynamic = "force-dynamic";
+
 const Language = () => {
   return (
     <PageLayout pageTop={<Hero image="/language.jpg" />}>
@@ -11,5 +13,3 @@ const Language = () => {
 };
 
 export default Language;
-
-export const dynamic = "force-dynamic";

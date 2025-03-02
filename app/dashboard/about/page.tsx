@@ -16,6 +16,7 @@ import { toast } from "@/hooks/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Flex, TextArea } from "@radix-ui/themes";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { BeatLoader } from "react-spinners";
@@ -32,6 +33,7 @@ const FormSchema = z.object({
 export default function HomePageEdit() {
   const { data: aboutUs, isLoading } = useGetAboutUs();
   const [isUpdating, setIsUpdating] = useState(false);
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -64,6 +66,7 @@ export default function HomePageEdit() {
         description: "Your changes have been saved.",
       });
       queryClient.invalidateQueries({ queryKey: ["about-us"] });
+      router.refresh();
       setIsUpdating(false);
     } catch {
       toast({

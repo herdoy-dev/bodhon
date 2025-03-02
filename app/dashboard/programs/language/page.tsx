@@ -17,6 +17,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Flex } from "@radix-ui/themes";
 import axios from "axios";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { BeatLoader } from "react-spinners";
@@ -36,6 +37,7 @@ const FormSchema = z.object({
 export default function EditLanguage() {
   const { data: language, isLoading } = useGetLanguage();
   const [isUpdating, setIsUpdating] = useState(false);
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -68,6 +70,7 @@ export default function EditLanguage() {
         description: "Your changes have been saved.",
       });
       queryClient.invalidateQueries({ queryKey: ["language"] });
+      router.refresh();
       setIsUpdating(false);
     } catch {
       toast({
