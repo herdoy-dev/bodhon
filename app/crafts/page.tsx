@@ -1,8 +1,8 @@
 import Hero from "@/components/hero";
 import PageLayout from "@/components/page-layout";
-import CraftsPageContent from "./content";
+import dynamic from "next/dynamic";
 
-export const dynamic = "force-dynamic";
+const CraftsPageContent = dynamic(() => import("./content"));
 
 const Crafts = () => {
   return (

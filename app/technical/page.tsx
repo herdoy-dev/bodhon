@@ -1,8 +1,8 @@
 import Hero from "@/components/hero";
 import PageLayout from "@/components/page-layout";
-import TechnicalPageContent from "./content";
+import dynamic from "next/dynamic";
 
-export const dynamic = "force-dynamic";
+const TechnicalPageContent = dynamic(() => import("./content"));
 
 const Technical = () => {
   return (

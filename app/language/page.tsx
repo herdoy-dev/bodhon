@@ -1,8 +1,8 @@
 import Hero from "@/components/hero";
 import PageLayout from "@/components/page-layout";
-import LanguagePageContent from "./content";
+import dynamic from "next/dynamic";
 
-export const dynamic = "force-dynamic";
+const LanguagePageContent = dynamic(() => import("./content"));
 
 const Language = () => {
   return (
