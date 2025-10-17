@@ -1,15 +1,18 @@
-import dynamic from "next/dynamic";
-import { HomeCarousel } from "@/components/home-carousel";
-import LatestPrograms from "@/components/latest-programs";
-import PageLayout from "@/components/page-layout";
-
-const AboutUs = dynamic(() => import("@/components/about-us"));
+import AboutSection from "@/components/about-section";
+import CTASection from "@/components/cta-section";
+import Footer from "@/components/footer";
+import HeroSection from "@/components/hero-section";
+import ImpactSection from "@/components/impact-section";
+import ProgramsSection from "@/components/programs-section";
 
 export default function Home() {
   return (
-    <PageLayout pageTop={<HomeCarousel />}>
-      <AboutUs />
-      <LatestPrograms />
-    </PageLayout>
+    <main className="min-h-screen">
+      <HeroSection />
+      <AboutSection />
+      <ProgramsSection />
+      <ImpactSection />
+      <CTASection />
+    </main>
   );
 }
