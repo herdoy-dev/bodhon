@@ -15,8 +15,7 @@ const programs = [
     title: "Bodhon Sporting Club",
     description:
       "Promoting physical health, teamwork, and discipline through various sports activities and fitness programs.",
-    image:
-      "https://images.unsplash.com/photo-1536922246289-88c42f957773?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    image: "/hero.png",
   },
   {
     icon: Laptop,
