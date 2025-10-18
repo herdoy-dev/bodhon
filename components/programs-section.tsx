@@ -73,10 +73,10 @@ export default function ProgramsSection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {programs.map((program, index) => (
-            <Card
+            <div
               key={index}
               // 5. Card background and shadow will now use theme variables
-              className="group hover:shadow-xl transition-all duration-300 border shadow-md bg-card"
+              className="group hover:shadow-xl transition-all duration-300 border shadow-md bg-card rounded-2xl overflow-hidden"
             >
               <CardHeader className="p-0">
                 <div className="relative overflow-hidden rounded-t-[calc(var(--radius)-4px)]">
@@ -110,7 +110,7 @@ export default function ProgramsSection() {
                   Learn More →
                 </Button>
               </CardContent>
-            </Card>
+            </div>
           ))}
         </div>
       </div>

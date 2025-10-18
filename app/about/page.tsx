@@ -1,4 +1,3 @@
-// app/about/page.tsx
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,36 +14,33 @@ import {
   Palette,
   Languages,
 } from "lucide-react";
+import Image from "next/image";
 
 export default function AboutPage() {
   const teamMembers = [
     {
-      name: "Rajesh Kumar",
+      name: "Saidur Rahman",
       role: "Founder & President",
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      image: "/founder.png",
       description:
         "Leading Bodhon since 2008 with a vision for youth empowerment",
     },
     {
-      name: "Priya Sharma",
-      role: "Program Director",
-      image:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      name: "Herdoy Almamun",
+      role: "Technical Assistant",
+      image: "/team/srabon.png",
       description: "Oversees all educational and skill development programs",
     },
     {
-      name: "Amit Patel",
-      role: "Sports Coordinator",
-      image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      name: "Srabon",
+      role: "Program Director",
+      image: "/team/srabon.png",
       description: "Manages sporting activities and physical health programs",
     },
     {
-      name: "Sunita Devi",
-      role: "Community Manager",
-      image:
-        "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      name: "Omar Faruk",
+      role: "Sports Coordinator",
+      image: "/team/srabon.png",
       description: "Bridges the gap between organization and community",
     },
   ];
@@ -130,12 +126,10 @@ export default function AboutPage() {
               none existed.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              {/* Primary button */}
               <Button size="lg" className="bg-primary hover:bg-primary/90">
                 Our Programs
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-              {/* Outline button uses theme defaults */}
               <Button size="lg" variant="outline">
                 Meet Our Team
               </Button>
@@ -144,7 +138,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Our Story Section */}
       <section className="py-20 bg-card">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -420,15 +413,16 @@ export default function AboutPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {teamMembers.map((member, index) => (
-              <Card
+              <div
                 key={index}
                 className="border-0 shadow-lg hover:shadow-xl transition-shadow text-center overflow-hidden"
               >
                 <CardContent className="p-0">
-                  <img
+                  <Image
+                    width={500}
+                    height={500}
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-48 object-cover"
                   />
                   <div className="p-6">
                     <h3 className="text-xl font-semibold text-foreground mb-1">
@@ -443,7 +437,7 @@ export default function AboutPage() {
                     </p>
                   </div>
                 </CardContent>
-              </Card>
+              </div>
             ))}
           </div>
 

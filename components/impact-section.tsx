@@ -1,6 +1,7 @@
 // components/impact-section.tsx
 import { Card, CardContent } from "@/components/ui/card";
-import { Award, Users, Book, Heart, TrendingUp } from "lucide-react";
+import { Award, Book, Heart, TrendingUp, Users } from "lucide-react";
+import Image from "next/image";
 
 const impacts = [
   {
@@ -92,8 +93,10 @@ export default function ImpactSection() {
                 </div>
               </div>
               <div className="bg-card/70 flex items-center justify-center p-8">
-                <img
-                  src="https://images.unsplash.com/photo-1529066516367-36973222c957?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                <Image
+                  src="/hero.png"
+                  width={600}
+                  height={500}
                   alt="Success Story"
                   className="rounded-lg shadow-md w-full max-w-sm"
                 />
